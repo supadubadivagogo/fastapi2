@@ -1,4 +1,4 @@
-API_KEY = "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"   
+API_KEY = "-"   
 import requests
 import json
 from pprint import pprint
@@ -25,11 +25,13 @@ def chatgpt2(msg):
 
         data = json.dumps(data)
 
+
         # 요청
         headers = {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + API_KEY
         }
+        pprint(headers)
         response = requests.post('https://api.openai.com/v1/chat/completions', headers=headers, data=data, timeout=60)
         response.raise_for_status()
         ans = response.json()
