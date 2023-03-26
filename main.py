@@ -10,9 +10,6 @@ import json
 from urllib.parse import quote, unquote
 
 
-# POST 요청을 통해 KEY를 받고, 이 키는 내려라.. 커밋하면 깃허브에서 보인다..
-# API_KEY = "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"   
-
 
 app = FastAPI()
 
