@@ -22,9 +22,10 @@ def google_search(query):
     # 챗지피티한테 물어봐서 파싱해서 일단 리스트 형태로 받음. 
     # 리스트 형태로 만들어서 나열하고 일단 리스트로 만들고
     
-    ans_search = [ response_json['knowledgeGraph'], response_json['organic'][0]["snippet"], response_json['organic'][1]["snippet"], response_json['organic'][2]["snippet"]  ] 
+    ans_search = str(response_json['knowledgeGraph']) + str(response_json['organic'][0]["snippet"]) + str(response_json['organic'][1]["snippet"]) + str(response_json['organic'][2]["snippet"])
     return ans_search
-    
+
+
 
 def google_place(query):
     url = "https://google.serper.dev/places"
@@ -57,4 +58,3 @@ def google_place(query):
     result = str(spot1) +","+ str(spot2) +","+ str(spot3)
     print(result)
     return result
-

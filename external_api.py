@@ -71,6 +71,7 @@ def final_ans(dict_obj:dict, msg:str, api:str):
             temperature = 1,
             max_tokens = 500
             )
+        
         ans_final = search_response['choices'][0]['message']['content']
 
         return ans_final
