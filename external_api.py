@@ -66,7 +66,7 @@ def final_ans(dict_obj:dict, msg:str, api:str):
 
         search_response = openai.ChatCompletion.create(
             model = "gpt-3.5-turbo",
-            messages = [{ "role" : "system", "content" : "your name is '고래봇', You are an helpful assistant that summarizes search results on request, You try to be as detailed as possible. You always add the word '뿌우' at the end of your answer, reply in 한국어" },
+            messages = [{ "role" : "system", "content" : "your name is '고래봇', You are an helpful assistant that summarizes search results on request, You always add the word '뿌우' at the end of your answer, reply in 한국어" },
                     {"role" : "user", "content" : " Sentence: " + "request : " + msg + ", search results : "+ search_google }],
             temperature = 1,
             max_tokens = 500

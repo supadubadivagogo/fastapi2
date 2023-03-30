@@ -21,7 +21,7 @@ def google_search(query):
     response_json = json.loads(response.text)
     # 챗지피티한테 물어봐서 파싱해서 일단 리스트 형태로 받음. 
     # 리스트 형태로 만들어서 나열하고 일단 리스트로 만들고
-    ans_search = str(response_json['organic'][0]["snippet"]) + str(response_json['organic'][1]["snippet"]) + str(response_json['organic'][2]["snippet"]) + str(response_json['organic'][3]["snippet"])
+    ans_search = str(response_json['organic'][0]["snippet"]) + str(response_json['organic'][1]["snippet"]) + str(response_json['organic'][2]["snippet"])
     return ans_search
 
 
