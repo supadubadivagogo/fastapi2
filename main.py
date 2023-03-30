@@ -3,6 +3,8 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
+import openai
+import os
 import requests
 import json
 
@@ -59,23 +61,30 @@ async def chatgpt(chat : Chat):
         return e
 
 
+class Chat3(BaseModel):
+    API_KEY : str
+    msg : str
 
 
 @app.post("/chatbot/gpt3/") 
-async def chatgpt3(chat : Chat):
+async def chatgpt3(chat3 : Chat3):
     try:
         # 지피티3은 msg에서 순수 입력 메시지만 가져옴
-        prom = chat.msg
-        api = chat.API_KEY
-        
-        os.environ["OPENAI"] = api
-        openai.api_key = os.getenv("OPENAI")
+       
+        prom = chat3.msg
+        api = chat3.API_KEY
 
-        final_answer = final_ans(pre_ans(prom))
+        # 이건 필요 없음... 어짜피 글로 가서 쓰는거라 api키를 들고 가서 import한데서 쓸 수 있게 함수를 짜야 함
+        # os.environ["OPENAI"] = api
+        # openai.api_key = os.getenv("OPENAI")
+
+        final_answer = final_ans(pre_ans(prom, api), prom, api)
+        print(final_answer)
         return final_answer
     
     except Exception as e:
         return e
+
 
 
 
