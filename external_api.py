@@ -25,7 +25,7 @@ def pre_ans(msg:str, api:str):
     response = openai.ChatCompletion.create(
         model = "gpt-3.5-turbo",
         messages = [{ "role" : "system", "content" : "Categorize the intent of a sentence into one of the following 2 views. 1. search 2. Place, Then extract keywords in korean for search engines from the sentence, and output the intent and keywords as JSON. <!Example 1> Sentence: Tell me a restaurant in Hwam-dong, Answer: {'intent' : 'Place', 'keyword' : '후암동 맛집'} <!Example 2> Statement: How old is Yoon Seok-yeol? Answer : {'intent' : 'search', 'keyword' : '윤석열 나이'} <!Example 3> Sentence: Should I have ramen or rice for lunch today? Answer: {'intent' : 'search', 'keyword' : '점심 메뉴'}" },
-                {"role" : "user", "content" : " Sentence: " + msg + "(just answer in one word)"}],
+                {"role" : "user", "content" : " Sentence: " + msg}],
         temperature = 0
     )
 
